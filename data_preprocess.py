@@ -6,7 +6,7 @@ import re
 import json
 import io
 
-intents_list = ['AddToPlaylist', 'BookRestaurant', 'GetWeather', 'SearchCreativeWork', 'SearchScreeningEvent' ]
+intents_list = ['AddToPlaylist', 'BookRestaurant', 'GetWeather', 'PlayMusic', 'RateBook', 'SearchCreativeWork', 'SearchScreeningEvent' ]
 
 BASE_DIR = ''
 DATA_DIR = BASE_DIR + 'data'
@@ -40,7 +40,7 @@ def process_training_data():
 	
 	for intent in intents_list:
 		
-		with io.open(os.path.join(DATA_DIR, "/train_" + intent + "_full.json.txt", encoding='utf-8')) as f:
+		with io.open(DATA_DIR + "/train_" + intent + "_full.json.txt", encoding='utf-8') as f:
 			data = json.load(f)
 		
 			req_list = []
